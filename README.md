@@ -1,6 +1,8 @@
-MERN is a scaffolding tool to build isomorphic apps using Mongo, Express, React and NodeJS. 
+# Calculator -- personal learning project
 
-- [Website](http://mern.io)
+Learning React and Redux.js by building this calculator web application!
+
+MERN is a scaffolding tool to build isomorphic apps using Mongo, Express, React and NodeJS. http://mern.io
 
 ## File Structure
 
