@@ -3,8 +3,17 @@ import React, { PropTypes } from 'react';
 function NumberDisplay(props) {
   return (
     <div>
-    {props.shown}
+      {props.shown}
     </div>
+
+    // <body>
+    // <div id="num-display">
+    //   {props.shown}
+    // </div>
+    // <script>
+    //   document.getElementById("num-display").style.color = "blue";
+    // </script>
+    // </body>
   );
 }
 
