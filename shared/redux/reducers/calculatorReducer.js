@@ -41,11 +41,11 @@ const calculatorReducer = (state = initialState, action) => {
         shown: '',
       };
 
-    case ActionTypes.PRESS_ADD :
+    case ActionTypes.PRESS_OPERATOR :
       return {
         prev: state.shown,
         curr: state.curr,
-        operator: action.addSymbol,
+        operator: action.symbol,
         shown: state.shown,
       };
 
@@ -59,7 +59,17 @@ const calculatorReducer = (state = initialState, action) => {
           operator: '',
           shown: updatedPrev.toString(),
         };
+      } else if (state.operator.localeCompare(" - ") === 0) {
+        updatedPrev = parseInt(state.prev, 10) - parseInt(state.curr, 10);
+
+        return {
+          prev: '',
+          curr: '',
+          operator: '',
+          shown: updatedPrev.toString(),
+        };
       }
+
 
     default:
       return state;

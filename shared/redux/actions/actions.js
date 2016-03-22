@@ -108,15 +108,16 @@ export function pressClear(cleared) {
   };
 }
 
-export function pressAdd(addSymbol) {
-  return {
-    type: ActionTypes.PRESS_ADD,
-    addSymbol,
-  };
-}
-
 export function pressEqual() {
   return {
     type: ActionTypes.PRESS_EQUAL,
   };
 }
+
+export function pressOperator(symbol) {
+  return {
+    type: ActionTypes.PRESS_OPERATOR,
+    symbol,
+  };
+}
+

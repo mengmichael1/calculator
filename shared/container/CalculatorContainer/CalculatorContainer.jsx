@@ -4,7 +4,7 @@ import * as Actions from '../../redux/actions/actions';
 import NumberButton from '../../components/Calculator/NumberButton';
 import NumberDisplay from '../../components/Calculator/NumberDisplay';
 import ClearButton from '../../components/Calculator/ClearButton';
-import AddButton from '../../components/Calculator/AddButton';
+import * as Ops from '../../components/Calculator/OperatorButton';
 import EqualButton from '../../components/Calculator/EqualButton';
 import _ from 'lodash';
 
@@ -13,8 +13,8 @@ class CalculatorContainer extends Component {
     super(props, context);
     this.handleNumberPress = this.handleNumberPress.bind(this);
     this.handleClearPress = this.handleClearPress.bind(this);
-    this.handleAddPress = this.handleAddPress.bind(this);
     this.handleEqualPress = this.handleEqualPress.bind(this);
+    this.handleOperatorPress = this.handleOperatorPress.bind(this);
   }
 
   handleNumberPress(number) {
@@ -25,12 +25,12 @@ class CalculatorContainer extends Component {
     this.props.dispatch(Actions.pressClear(cleared));
   }
 
-  handleAddPress(addSymbol) {
-    this.props.dispatch(Actions.pressAdd(addSymbol));
-  }
-
   handleEqualPress() {
     this.props.dispatch(Actions.pressEqual());
+  }
+
+  handleOperatorPress(symbol) {
+    this.props.dispatch(Actions.pressOperator(symbol));
   }
 
   render() {
@@ -41,7 +41,8 @@ class CalculatorContainer extends Component {
         { buttons }
         <NumberDisplay shown={this.props.shown}/>
         <ClearButton press={this.handleClearPress}/>
-        <AddButton press={this.handleAddPress}/>
+        <Ops.AddButton press={this.handleOperatorPress}/>
+        <Ops.SubtractButton press={this.handleOperatorPress}/>
         <EqualButton press={this.handleEqualPress}/>
       </div>
     );
