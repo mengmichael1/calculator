@@ -43,6 +43,8 @@ class CalculatorContainer extends Component {
         <ClearButton press={this.handleClearPress}/>
         <Ops.AddButton press={this.handleOperatorPress}/>
         <Ops.SubtractButton press={this.handleOperatorPress}/>
+        <Ops.MultiplyButton press={this.handleOperatorPress}/>
+        <Ops.DivideButton press={this.handleOperatorPress}/>
         <EqualButton press={this.handleEqualPress}/>
       </div>
     );

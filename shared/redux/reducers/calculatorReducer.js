@@ -50,8 +50,8 @@ const calculatorReducer = (state = initialState, action) => {
       };
 
     case ActionTypes.PRESS_EQUAL :
-      if (state.operator.localeCompare(" + ") === 0) {
-        updatedPrev = parseInt(state.prev, 10) + parseInt(state.curr, 10);
+      if (state.operator.localeCompare(' + ') === 0) {
+        updatedPrev = parseFloat(state.prev, 10) + parseFloat(state.curr, 10);
 
         return {
           prev: '',
@@ -59,8 +59,8 @@ const calculatorReducer = (state = initialState, action) => {
           operator: '',
           shown: updatedPrev.toString(),
         };
-      } else if (state.operator.localeCompare(" - ") === 0) {
-        updatedPrev = parseInt(state.prev, 10) - parseInt(state.curr, 10);
+      } else if (state.operator.localeCompare(' - ') === 0) {
+        updatedPrev = parseFloat(state.prev, 10) - parseFloat(state.curr, 10);
 
         return {
           prev: '',
@@ -68,8 +68,25 @@ const calculatorReducer = (state = initialState, action) => {
           operator: '',
           shown: updatedPrev.toString(),
         };
-      }
+      } else if (state.operator.localeCompare(' x ') === 0) {
+        updatedPrev = parseFloat(state.prev, 10) * parseFloat(state.curr, 10);
 
+        return {
+          prev: '',
+          curr: '',
+          operator: '',
+          shown: updatedPrev.toString(),
+        };
+      } else if (state.operator.localeCompare(' / ') === 0) {
+        updatedPrev = parseFloat(state.prev, 10) / parseFloat(state.curr, 10);
+
+        return {
+          prev: '',
+          curr: '',
+          operator: '',
+          shown: updatedPrev.toString(),
+        };
+      } 
 
     default:
       return state;

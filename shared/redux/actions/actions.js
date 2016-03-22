@@ -120,4 +120,3 @@ export function pressOperator(symbol) {
     symbol,
   };
 }
-
